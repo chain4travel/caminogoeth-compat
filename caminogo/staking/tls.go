@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024, Chain4Travel AG. All rights reserved.
+// Copyright (C) 2022-2025, Chain4Travel AG. All rights reserved.
 //
 // This file is a derived work, based on ava-labs code whose
 // original notices appear below.
@@ -21,23 +21,16 @@ import (
 	"crypto/x509"
 	"crypto/x509/pkix"
 	"encoding/pem"
-	"errors"
 	"fmt"
 	"math/big"
 	"os"
 	"path/filepath"
 	"time"
 
-	// "github.com/ava-labs/avalanchego/utils/perms"
-	"github.com/chain4travel/caminogoeth-compat/caminogo/perms"
-
-	// "github.com/ava-labs/avalanchego/ids"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/ids"
-
-	utilsSecp256k1 "github.com/chain4travel/caminogoeth-compat/caminogo/secp256k1"
+	"github.com/chain4travel/caminogoeth-compat/caminogo/perms"
+	"github.com/chain4travel/caminogoeth-compat/caminogo/secp256k1"
 )
-
-var errDuplicateExtension = errors.New("duplicate certificate extension")
 
 // InitNodeStakingKeyPair generates a self-signed TLS key/cert pair to use in
 // staking. The key and files will be placed at [keyPath] and [certPath],
@@ -108,8 +101,8 @@ func NewCertAndKeyBytesWithSecpKey() ([]byte, []byte, ids.NodeID, error) {
 		return nil, nil, ids.EmptyNodeID, fmt.Errorf("couldn't generate rsa key: %w", err)
 	}
 	// Create SECP256K1 key to sign cert with
-	secpKey := utilsSecp256k1.RsaPrivateKeyToSecp256PrivateKey(rsaKey)
-	extension := utilsSecp256k1.SignRsaPublicKey(secpKey, &rsaKey.PublicKey)
+	secpKey := secp256k1.RsaPrivateKeyToSecp256PrivateKey(rsaKey)
+	extension := secp256k1.SignRsaPublicKey(secpKey, &rsaKey.PublicKey)
 
 	// Create self-signed staking cert
 	certTemplate := &x509.Certificate{
@@ -145,12 +138,15 @@ func NewCertAndKeyBytesWithSecpKey() ([]byte, []byte, ids.NodeID, error) {
 	}
 
 	nodeID, err := certToID(tlsCert.Leaf)
+	if err != nil {
+		return nil, nil, ids.EmptyNodeID, fmt.Errorf("couldn't get node ID from cert: %w", err)
+	}
 
 	return keyBuff.Bytes(), certBuff.Bytes(), nodeID, nil
 }
 
 func certToID(cert *x509.Certificate) (ids.NodeID, error) {
-	pubKeyBytes, err := utilsSecp256k1.RecoverSecp256PublicKey(cert)
+	pubKeyBytes, err := secp256k1.RecoverSecp256PublicKey(cert)
 	if err != nil {
 		return ids.EmptyNodeID, err
 	}

@@ -8,10 +8,8 @@ import (
 	"crypto/x509"
 	"fmt"
 
-	// "github.com/ava-labs/avalanchego/utils"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/utils"
 
-	// "github.com/ava-labs/avalanchego/utils/hashing"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/hashing"
 )
 
@@ -62,6 +60,7 @@ func (id *NodeID) UnmarshalJSON(b []byte) error {
 func (id *NodeID) UnmarshalText(text []byte) error {
 	return id.UnmarshalJSON(text)
 }
+
 func (id NodeID) Less(other NodeID) bool {
 	return bytes.Compare(id[:], other[:]) == -1
 }

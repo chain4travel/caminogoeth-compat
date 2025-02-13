@@ -1,4 +1,4 @@
-// Copyright (C) 2022, Chain4Travel AG. All rights reserved.
+// Copyright (C) 2022-2025, Chain4Travel AG. All rights reserved.
 // See the file LICENSE for licensing terms.
 
 package params
@@ -6,9 +6,6 @@ package params
 import (
 	"math/big"
 
-	// "github.com/ava-labs/avalanchego/utils/constants"
-
-	// "github.com/ava-labs/coreth/utils"
 	"github.com/chain4travel/caminogoeth-compat/caminoethvm/utils"
 )
 

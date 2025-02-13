@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024, Chain4Travel AG. All rights reserved.
+// Copyright (C) 2022-2025, Chain4Travel AG. All rights reserved.
 //
 // This file is a derived work, based on ava-labs code whose
 // original notices appear below.
@@ -16,7 +16,6 @@ package genesis
 import (
 	"errors"
 
-	// "github.com/ava-labs/avalanchego/ids"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/ids"
 )
 

@@ -1,4 +1,4 @@
-// Copyright (C) 2022, Chain4Travel AG. All rights reserved.
+// Copyright (C) 2022-2025, Chain4Travel AG. All rights reserved.
 //
 // This file is a derived work, based on ava-labs code whose
 // original notices appear below.
@@ -42,7 +42,6 @@ import (
 	"math/big"
 	"time"
 
-	// "github.com/ava-labs/coreth/utils"
 	"github.com/chain4travel/caminogoeth-compat/caminoethvm/utils"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -225,15 +224,6 @@ type ChainConfig struct {
 // AvalancheContext provides Avalanche specific context directly into the EVM.
 type AvalancheContext struct {
 	BlockchainID common.Hash
-}
-
-func getUpgradeTime(networkID uint32, upgradeTimes map[uint32]time.Time) *big.Int {
-	if upgradeTime, ok := upgradeTimes[networkID]; ok {
-		return big.NewInt(upgradeTime.Unix())
-	}
-	// If the upgrade time isn't specified, default being enabled in the
-	// genesis.
-	return big.NewInt(0)
 }
 
 // String implements the fmt.Stringer interface.

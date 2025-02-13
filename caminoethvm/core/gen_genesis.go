@@ -7,9 +7,8 @@ import (
 	"errors"
 	"math/big"
 
-	// "github.com/ava-labs/coreth/params"
 	"github.com/chain4travel/caminogoeth-compat/caminoethvm/params"
-	
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/common/math"

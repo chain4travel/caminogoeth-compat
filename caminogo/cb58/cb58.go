@@ -10,7 +10,6 @@ import (
 
 	"github.com/mr-tron/base58/base58"
 
-	// "github.com/ava-labs/avalanchego/utils/hashing"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/hashing"
 )
 

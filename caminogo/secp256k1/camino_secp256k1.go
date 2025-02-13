@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024, Chain4Travel AG. All rights reserved.
+// Copyright (C) 2022-2025, Chain4Travel AG. All rights reserved.
 // See the file LICENSE for licensing terms.
 
 package secp256k1
@@ -10,13 +10,10 @@ import (
 	"encoding/asn1"
 	"errors"
 
-	// "github.com/ava-labs/avalanchego/ids"
+	"github.com/chain4travel/caminogoeth-compat/caminogo/hashing"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/ids"
 
-	// "github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/chain4travel/caminogoeth-compat/caminogo/hashing"
-
-	secp256k1 "github.com/decred/dcrd/dcrec/secp256k1/v4"
+	"github.com/decred/dcrd/dcrec/secp256k1/v4"
 	ecdsa "github.com/decred/dcrd/dcrec/secp256k1/v4/ecdsa"
 )
 

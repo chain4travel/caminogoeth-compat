@@ -1,4 +1,4 @@
-// Copyright (C) 2022-2024, Chain4Travel AG. All rights reserved.
+// Copyright (C) 2022-2025, Chain4Travel AG. All rights reserved.
 //
 // This file is a derived work, based on ava-labs code whose
 // original notices appear below.
@@ -18,31 +18,28 @@ import (
 
 	_ "embed"
 
-	// "github.com/ava-labs/avalanchego/utils/units"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/units"
 )
 
-var (
-	LocalParams = Params{
-		TxFeeConfig: TxFeeConfig{
-			TxFee:                         units.MilliAvax,
-			CreateAssetTxFee:              units.MilliAvax,
-			CreateSubnetTxFee:             100 * units.MilliAvax,
-			TransformSubnetTxFee:          100 * units.MilliAvax,
-			CreateBlockchainTxFee:         100 * units.MilliAvax,
-			AddPrimaryNetworkValidatorFee: 0,
-			AddPrimaryNetworkDelegatorFee: 0,
-			AddSubnetValidatorFee:         units.MilliAvax,
-			AddSubnetDelegatorFee:         units.MilliAvax,
-		},
-		StakingConfig: StakingConfig{
-			UptimeRequirement: .8, // 80%
-			MinValidatorStake: 2 * units.KiloAvax,
-			MaxValidatorStake: 3 * units.MegaAvax,
-			MinDelegatorStake: 25 * units.Avax,
-			MinDelegationFee:  20000, // 2%
-			MinStakeDuration:  24 * time.Hour,
-			MaxStakeDuration:  365 * 24 * time.Hour,
-		},
-	}
-)
+var LocalParams = Params{
+	TxFeeConfig: TxFeeConfig{
+		TxFee:                         units.MilliAvax,
+		CreateAssetTxFee:              units.MilliAvax,
+		CreateSubnetTxFee:             100 * units.MilliAvax,
+		TransformSubnetTxFee:          100 * units.MilliAvax,
+		CreateBlockchainTxFee:         100 * units.MilliAvax,
+		AddPrimaryNetworkValidatorFee: 0,
+		AddPrimaryNetworkDelegatorFee: 0,
+		AddSubnetValidatorFee:         units.MilliAvax,
+		AddSubnetDelegatorFee:         units.MilliAvax,
+	},
+	StakingConfig: StakingConfig{
+		UptimeRequirement: .8, // 80%
+		MinValidatorStake: 2 * units.KiloAvax,
+		MaxValidatorStake: 3 * units.MegaAvax,
+		MinDelegatorStake: 25 * units.Avax,
+		MinDelegationFee:  20000, // 2%
+		MinStakeDuration:  24 * time.Hour,
+		MaxStakeDuration:  365 * 24 * time.Hour,
+	},
+}

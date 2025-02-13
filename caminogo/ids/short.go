@@ -9,13 +9,10 @@ import (
 	"fmt"
 	"strings"
 
-	// "github.com/ava-labs/avalanchego/utils"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/utils"
 
-	// "github.com/ava-labs/avalanchego/utils/cb58"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/cb58"
 
-	// "github.com/ava-labs/avalanchego/utils/hashing"
 	"github.com/chain4travel/caminogoeth-compat/caminogo/hashing"
 )
 
