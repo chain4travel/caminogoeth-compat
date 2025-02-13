@@ -1,0 +1,1 @@
+We had to copy all those files because of packages incompatiblity. Once we'll update caminogo with latest cortinas, so it will switch to x/exp 2023, the issue will resolve most likely and we can then use caminogo/evm packages.
